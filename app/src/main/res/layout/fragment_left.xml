@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="66dp"
+    android:layout_height="match_parent"
+    android:background="@color/colorLeftBg"
+    android:orientation="vertical"
+    android:paddingTop="8dp">
+
+    <!-- Item Perfil -->
+    <LinearLayout
+        android:id="@+id/itemPerfil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true">
+        <TextView
+            android:id="@+id/iconPerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="👤"
+            android:textSize="15sp"/>
+        <TextView
+            android:id="@+id/labelPerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Perfil"
+            android:textSize="7.5sp"
+            android:textColor="@color/colorLeftInactive"
+            android:layout_marginTop="2dp"/>
+    </LinearLayout>
+
+    <!-- Item Fotos -->
+    <LinearLayout
+        android:id="@+id/itemFotos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true">
+        <TextView
+            android:id="@+id/iconFotos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🍽️"
+            android:textSize="15sp"/>
+        <TextView
+            android:id="@+id/labelFotos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fotos"
+            android:textSize="7.5sp"
+            android:textColor="@color/colorLeftInactive"
+            android:layout_marginTop="2dp"/>
+    </LinearLayout>
+
+    <!-- Item Video -->
+    <LinearLayout
+        android:id="@+id/itemVideo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true">
+        <TextView
+            android:id="@+id/iconVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="▶️"
+            android:textSize="15sp"/>
+        <TextView
+            android:id="@+id/labelVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Video"
+            android:textSize="7.5sp"
+            android:textColor="@color/colorLeftInactive"
+            android:layout_marginTop="2dp"/>
+    </LinearLayout>
+
+    <!-- Item Web -->
+    <LinearLayout
+        android:id="@+id/itemWeb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true">
+        <TextView
+            android:id="@+id/iconWeb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🌐"
+            android:textSize="15sp"/>
+        <TextView
+            android:id="@+id/labelWeb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Web"
+            android:textSize="7.5sp"
+            android:textColor="@color/colorLeftInactive"
+            android:layout_marginTop="2dp"/>
+    </LinearLayout>
+
+    <!-- Item Botones -->
+    <LinearLayout
+        android:id="@+id/itemBotones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true">
+        <TextView
+            android:id="@+id/iconBotones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎛️"
+            android:textSize="15sp"/>
+        <TextView
+            android:id="@+id/labelBotones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Botones"
+            android:textSize="7.5sp"
+            android:textColor="@color/colorLeftInactive"
+            android:layout_marginTop="2dp"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackground">
+
+    <!-- Panel superior — lista de recetas (48%) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRecetas"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="48"
+        android:padding="6dp"/>
+
+    <!-- Divisor -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorOrange"/>
+
+    <!-- Panel inferior — detalle (52%) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="52"
+        android:orientation="vertical">
+
+        <!-- Imagen grande con overlay -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="110dp">
+
+            <ImageView
+                android:id="@+id/ivDetalleImagen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#88000000"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/tvDetalleTitulo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tvDetalleRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorAmber"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Tags -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvDetalleCategoria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorOrange"
+                android:textColor="@color/colorWhite"
+                android:textSize="10sp"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"/>
+
+            <TextView
+                android:id="@+id/tvDetalleTiempo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:background="@color/colorBrown"
+                android:textColor="@color/colorWhite"
+                android:textSize="10sp"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"/>
+
+            <TextView
+                android:id="@+id/tvDetalleDificultad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:background="@color/colorRed"
+                android:textColor="@color/colorWhite"
+                android:textSize="10sp"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"/>
+        </LinearLayout>
+
+        <!-- Descripcion -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingHorizontal="8dp">
+
+            <TextView
+                android:id="@+id/tvDetalleDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/colorTextPrimary"
+                android:lineSpacingMultiplier="1.4"/>
+        </ScrollView>
+
+        <!-- Botones -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <Button
+                android:id="@+id/btnGuardar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:text="⭐ Guardar"
+                android:backgroundTint="@color/colorOrange"/>
+
+            <Button
+                android:id="@+id/btnVerReceta"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Ver receta"
+                android:backgroundTint="@color/colorBrown"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
