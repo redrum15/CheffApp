@@ -13,6 +13,7 @@
     <color name="colorDark">#1C0A00</color>
     <color name="colorGray">#8B7355</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
 
     <!-- Fondos -->
     <color name="colorBackground">#FFF8F0</color>
