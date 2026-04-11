@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
-        supportActionBar?.title = "🍳 ChefApp"
+        supportActionBar?.setDisplayShowTitleEnabled(false)
 
         configurarDrawer()
         cargarFragmentoIzquierdo()

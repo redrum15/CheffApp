@@ -71,7 +71,7 @@ class LeftFragment : Fragment() {
             val (contenedor, label) = par
             if (tag == itemActivo) {
                 contenedor.setBackgroundResource(R.drawable.bg_left_active)
-                label.setTextColor(ContextCompat.getColor(requireContext(), R.color.colorOrange))
+                label.setTextColor(ContextCompat.getColor(requireContext(), R.color.colorWhite))
             } else {
                 contenedor.setBackgroundColor(
                     ContextCompat.getColor(requireContext(), android.R.color.transparent)
