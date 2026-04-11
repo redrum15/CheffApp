@@ -190,6 +190,8 @@
                         android:layout_marginTop="8dp"
                         android:text="+ Agregar"
                         android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorBlack"
                         android:backgroundTint="@color/colorCream" />
 
                 </LinearLayout>
@@ -230,6 +232,8 @@
                         android:layout_marginTop="8dp"
                         android:text="+ Agregar"
                         android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorBlack"
                         android:backgroundTint="@color/colorCream" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
