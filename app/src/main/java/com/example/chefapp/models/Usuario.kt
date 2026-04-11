@@ -16,7 +16,7 @@ data class Usuario(
     val alimentosNoDeseados: MutableList<Alimento> = mutableListOf(),
     val recetasFavoritas: MutableList<Receta> = mutableListOf()
 ) {
-    fun editarPerfil() { /* editar datos */ }
+    fun editarPerfil() {  }
 
     fun visualizarPerfil(): Usuario = this
 
@@ -64,14 +64,14 @@ data class Usuario(
 object UsuarioActual {
     val usuario = Usuario(
         id = 1,
-        nombre = "Marco",
-        apellido = "Ríos",
-        email = "marco.rios@email.com",
+        nombre = "Jorge",
+        apellido = "Martinez",
+        email = "jorge.martinez@email.com",
         contrasena = "",
-        edad = 28,
-        peso = 72f,
-        estatura = 1.75f,
-        objetivoNutricional = ObjetivoNutricional.MANTENER_PESO,
+        edad = 38,
+        peso = 65f,
+        estatura = 1.79f,
+        objetivoNutricional = ObjetivoNutricional.BAJAR_PESO,
         alergias = mutableListOf(
             Alergia(1, "Mariscos \uD83E\uDD90"),
             Alergia(2, "Lácteos \uD83E\uDD5B"),
