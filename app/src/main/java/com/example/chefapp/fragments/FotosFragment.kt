@@ -11,14 +11,19 @@ import com.bumptech.glide.Glide
 import com.example.chefapp.R
 import com.example.chefapp.databinding.FragmentFotosBinding
 import com.example.chefapp.databinding.ItemRecipeBinding
-import com.example.chefapp.models.Recipe
-import com.example.chefapp.models.RecipeData
+import com.example.chefapp.helpers.GaleriaRecetas
+import com.example.chefapp.models.Dificultad
+import com.example.chefapp.models.Receta
+import com.example.chefapp.models.RecetaData
 
 
 class FotosFragment : Fragment() {
 
     private var _binding: FragmentFotosBinding? = null
     private val binding get() = _binding!!
+
+    // Galería de recetas del diagrama UML
+    private val galeria = GaleriaRecetas()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentFotosBinding.inflate(inflater, container, false)
@@ -28,28 +33,35 @@ class FotosFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        galeria.mostrarGaleria()
+
         // Configurar RecyclerView con adapter
-        val adapter = RecipeAdapter(RecipeData.recipes) { receta ->
+        val adapter = RecipeAdapter(galeria.recetas) { receta ->
+            galeria.seleccionarReceta(receta)
             mostrarDetalle(receta)
         }
         binding.rvRecetas.layoutManager = LinearLayoutManager(requireContext())
         binding.rvRecetas.adapter = adapter
 
         // Mostrar primera receta por defecto
-        mostrarDetalle(RecipeData.recipes.first())
+        mostrarDetalle(galeria.recetas.first())
     }
 
     // Actualiza el panel de detalle con la receta seleccionada
-    private fun mostrarDetalle(receta: Recipe) {
-        binding.tvDetalleTitulo.text     = receta.title
-        binding.tvDetalleCategoria.text  = receta.category
-        binding.tvDetalleTiempo.text     = receta.time
-        binding.tvDetalleDificultad.text = receta.difficulty
-        binding.tvDetalleDesc.text       = receta.description
-        binding.tvDetalleRating.text     = "⭐ ${receta.rating}"
+    private fun mostrarDetalle(receta: Receta) {
+        binding.tvDetalleTitulo.text     = receta.nombre
+        binding.tvDetalleCategoria.text  = receta.categoria?.nombre ?: ""
+        binding.tvDetalleTiempo.text     = "${receta.porciones} porciones"
+        binding.tvDetalleDificultad.text = when (receta.dificultad) {
+            Dificultad.FACIL -> "Fácil"
+            Dificultad.MEDIO -> "Medio"
+            Dificultad.DIFICIL -> "Difícil"
+        }
+        binding.tvDetalleDesc.text       = receta.descripcion
+        binding.tvDetalleRating.text     = "⭐ ${receta.calificacionPromedio}"
 
         Glide.with(this)
-            .load(receta.imageUrl)
+            .load(receta.imagenUrl)
             .centerCrop()
             .into(binding.ivDetalleImagen)
 
@@ -65,6 +77,14 @@ class FotosFragment : Fragment() {
         }
     }
 
+    fun navegarImagenSiguiente() {
+        galeria.siguiente()?.let { mostrarDetalle(it) }
+    }
+
+    fun navegarImagenAnterior() {
+        galeria.anterior()?.let { mostrarDetalle(it) }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -73,8 +93,8 @@ class FotosFragment : Fragment() {
 
 // ── Adapter RecyclerView ─────────────────────────────────────────────────────
 class RecipeAdapter(
-    private val recetas: List<Recipe>,
-    private val onClick: (Recipe) -> Unit
+    private val recetas: List<Receta>,
+    private val onClick: (Receta) -> Unit
 ) : RecyclerView.Adapter<RecipeAdapter.ViewHolder>() {
 
     private var seleccionado = 0
@@ -91,15 +111,19 @@ class RecipeAdapter(
         val ctx    = holder.itemView.context
 
         // Vincular datos con IDs del item_recipe.xml
-        holder.binding.tvItemTitulo.text     = receta.title
-        holder.binding.tvItemCategoria.text  = receta.category
-        holder.binding.tvItemTiempo.text     = receta.time
-        holder.binding.tvItemDificultad.text = receta.difficulty
-        holder.binding.tvItemRating.text     = "⭐ ${receta.rating}"
+        holder.binding.tvItemTitulo.text     = receta.nombre
+        holder.binding.tvItemCategoria.text  = receta.categoria?.nombre ?: ""
+        holder.binding.tvItemTiempo.text     = "${receta.porciones} porciones"
+        holder.binding.tvItemDificultad.text = when (receta.dificultad) {
+            Dificultad.FACIL -> "Fácil"
+            Dificultad.MEDIO -> "Medio"
+            Dificultad.DIFICIL -> "Difícil"
+        }
+        holder.binding.tvItemRating.text     = "⭐ ${receta.calificacionPromedio}"
 
         // Cargar thumbnail con Glide
         Glide.with(ctx)
-            .load(receta.imageUrl)
+            .load(receta.imagenUrl)
             .centerCrop()
             .into(holder.binding.ivItemThumbnail)
 

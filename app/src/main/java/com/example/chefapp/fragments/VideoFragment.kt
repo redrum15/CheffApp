@@ -12,18 +12,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chefapp.databinding.FragmentVideoBinding
 import com.example.chefapp.databinding.FragmentVideoListItemBinding
-import com.example.chefapp.models.Recipe
-import com.example.chefapp.models.RecipeData
+import com.example.chefapp.helpers.ReproductorVideo
+import com.example.chefapp.models.Dificultad
+import com.example.chefapp.models.Receta
+import com.example.chefapp.models.RecetaData
 
 class VideoFragment : Fragment() {
 
     private var _binding: FragmentVideoBinding? = null
     private val binding get() = _binding!!
 
+    // Reproductor del diagrama UML
+    private val reproductor = ReproductorVideo()
+
     private var indiceActivo = 0
     private var estaMuteado  = false
-    private var volumen      = 80
-    private val recetas      = RecipeData.recipes
+    private val recetas      = RecetaData.recetas
     private lateinit var videoAdapter: VideoListAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -34,29 +38,41 @@ class VideoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        reproductor.cargarDesdeRecetas(recetas)
+
         configurarWebView()
         configurarLista()
 
         binding.btnAnterior.setOnClickListener {
-            if (indiceActivo > 0) { indiceActivo--; cargarReceta(indiceActivo) }
+            if (indiceActivo > 0) {
+                indiceActivo--
+                reproductor.anterior()
+                cargarReceta(indiceActivo)
+            }
         }
-        binding.btnPlayPause.setOnClickListener { }
+        binding.btnPlayPause.setOnClickListener {
+            reproductor.reproducir()
+        }
         binding.btnSiguiente.setOnClickListener {
-            if (indiceActivo < recetas.size - 1) { indiceActivo++; cargarReceta(indiceActivo) }
+            if (indiceActivo < recetas.size - 1) {
+                indiceActivo++
+                reproductor.siguiente()
+                cargarReceta(indiceActivo)
+            }
         }
         binding.btnMute.setOnClickListener {
             estaMuteado = !estaMuteado
-            binding.btnMute.text = if (estaMuteado) "🔇" else if (volumen < 50) "🔈" else "🔊"
+            binding.btnMute.text = if (estaMuteado) "🔇" else if (reproductor.volumen < 50) "🔈" else "🔊"
         }
 
-        binding.seekBarVolumen.progress = volumen
+        binding.seekBarVolumen.progress = reproductor.volumen
         binding.seekBarVolumen.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                volumen = progress
-                binding.tvVolumen.text = "$volumen"
+                reproductor.ajustarVolumen(progress)
+                binding.tvVolumen.text = "${reproductor.volumen}"
                 binding.btnMute.text = when {
-                    volumen == 0 -> "🔇"
-                    volumen < 50 -> "🔈"
+                    reproductor.volumen == 0 -> "🔇"
+                    reproductor.volumen < 50 -> "🔈"
                     else -> "🔊"
                 }
             }
@@ -79,6 +95,8 @@ class VideoFragment : Fragment() {
     private fun configurarLista() {
         videoAdapter = VideoListAdapter(recetas) { indice ->
             indiceActivo = indice
+            val video = recetas[indice].videos.firstOrNull()
+            if (video != null) reproductor.seleccionarVideo(video)
             cargarReceta(indice)
         }
         binding.rvListaVideo.layoutManager = LinearLayoutManager(requireContext())
@@ -87,11 +105,18 @@ class VideoFragment : Fragment() {
 
     private fun cargarReceta(indice: Int) {
         val receta = recetas[indice]
+        val video = receta.videos.firstOrNull()
+        val ytId = video?.url ?: ""
         val mute   = if (estaMuteado) "&mute=1" else "&mute=0"
-        binding.webViewVideo.loadUrl("https://www.youtube.com/embed/${receta.ytId}?autoplay=1$mute")
-        binding.tvVideoTitulo.text    = receta.title
-        binding.tvVideoCategoria.text = "${receta.category} · ${receta.time} · ${receta.difficulty}"
-        binding.tvVideoRating.text    = "⭐ ${receta.rating}"
+        binding.webViewVideo.loadUrl("https://www.youtube.com/embed/$ytId?autoplay=1$mute")
+        binding.tvVideoTitulo.text    = receta.nombre
+        val dificultadStr = when (receta.dificultad) {
+            Dificultad.FACIL -> "Fácil"
+            Dificultad.MEDIO -> "Medio"
+            Dificultad.DIFICIL -> "Difícil"
+        }
+        binding.tvVideoCategoria.text = "${receta.categoria?.nombre ?: ""} · ${receta.porciones} porc. · $dificultadStr"
+        binding.tvVideoRating.text    = "⭐ ${receta.calificacionPromedio}"
         binding.btnAnterior.isEnabled  = indice > 0
         binding.btnAnterior.alpha      = if (indice > 0) 1f else 0.4f
         binding.btnSiguiente.isEnabled = indice < recetas.size - 1
@@ -106,7 +131,7 @@ class VideoFragment : Fragment() {
 }
 
 class VideoListAdapter(
-    private val recetas: List<Recipe>,
+    private val recetas: List<Receta>,
     private val onClick: (Int) -> Unit
 ) : RecyclerView.Adapter<VideoListAdapter.ViewHolder>() {
 
@@ -121,9 +146,9 @@ class VideoListAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val receta = recetas[position]
-        holder.binding.tvVideoItem.text = receta.title
+        holder.binding.tvVideoItem.text = receta.nombre
         holder.binding.badgeNow.visibility = if (position == indiceActivo) View.VISIBLE else View.GONE
-        Glide.with(holder.itemView.context).load(receta.imageUrl).centerCrop().into(holder.binding.ivVideoItem)
+        Glide.with(holder.itemView.context).load(receta.imagenUrl).centerCrop().into(holder.binding.ivVideoItem)
         holder.itemView.setOnClickListener { onClick(position) }
     }
 
