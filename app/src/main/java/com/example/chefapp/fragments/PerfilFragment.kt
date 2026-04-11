@@ -10,7 +10,9 @@ import com.bumptech.glide.Glide
 import com.example.chefapp.R
 import com.example.chefapp.databinding.FragmentPerfilBinding
 import com.example.chefapp.models.ObjetivoNutricional
+import com.example.chefapp.models.TipoDieta
 import com.example.chefapp.models.UsuarioActual
+import com.google.android.material.chip.Chip
 
 class PerfilFragment : Fragment() {
 
@@ -70,17 +72,38 @@ class PerfilFragment : Fragment() {
         binding.tvImc.text = "${String.format("%.1f", imc)} — $categoria"
     }
 
-    // Muestra las preferencias dietéticas
     private fun mostrarPreferencias() {
-        // Las preferencias se muestran en la UI existente sin cambios visuales
+        binding.chipGroupPreferencias.removeAllViews()
+        usuario.preferencias.forEach { pref ->
+            val chip = Chip(requireContext()).apply {
+                text = when (pref.tipo) {
+                    TipoDieta.VEGETARIANA -> "Vegetariana 🥬"
+                    TipoDieta.VEGANA -> "Vegana 🌱"
+                    TipoDieta.KETO -> "Keto 🥩"
+                    TipoDieta.SIN_GLUTEN -> "Sin gluten 🌾"
+                    TipoDieta.SIN_LACTOSA -> "Sin lactosa 🥛"
+                }
+                isCloseIconVisible = false
+                setChipBackgroundColorResource(R.color.colorCream)
+                setTextColor(ContextCompat.getColor(requireContext(), R.color.colorBrown))
+            }
+            binding.chipGroupPreferencias.addView(chip)
+        }
     }
 
-    // Muestra las alergias del usuario
     private fun mostrarAlergias() {
-        // Las alergias se muestran en la UI existente sin cambios visuales
+        binding.chipGroupAlergias.removeAllViews()
+        usuario.alergias.forEach { alergia ->
+            val chip = Chip(requireContext()).apply {
+                text = alergia.nombre
+                isCloseIconVisible = false
+                setChipBackgroundColorResource(R.color.colorRed)
+                setTextColor(ContextCompat.getColor(requireContext(), R.color.colorWhite))
+            }
+            binding.chipGroupAlergias.addView(chip)
+        }
     }
 
-    // Actualiza el objetivo nutricional en el modelo y refleja en UI
     private fun seleccionarObjetivo(objetivo: ObjetivoNutricional) {
         usuario.seleccionarObjetivo(objetivo)
         val tagActivo = when (objetivo) {
