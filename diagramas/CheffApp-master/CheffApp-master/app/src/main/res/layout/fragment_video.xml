@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0F0700">
+
+    <WebView
+        android:id="@+id/webViewVideo"
+        android:layout_width="match_parent"
+        android:layout_height="155dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:background="#1C0A00">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="8dp">
+
+            <Button
+                android:id="@+id/btnAnterior"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="⏮"
+                android:textSize="16sp"
+                android:padding="0dp"
+                android:backgroundTint="#2D1800"/>
+
+            <Button
+                android:id="@+id/btnPlayPause"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="12dp"
+                android:text="▶"
+                android:textSize="18sp"
+                android:padding="0dp"
+                android:backgroundTint="@color/colorOrange"/>
+
+            <Button
+                android:id="@+id/btnSiguiente"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="⏭"
+                android:textSize="16sp"
+                android:padding="0dp"
+                android:backgroundTint="#2D1800"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <Button
+                android:id="@+id/btnMute"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:text="🔊"
+                android:textSize="14sp"
+                android:padding="0dp"
+                android:backgroundTint="#2D1800"/>
+
+            <SeekBar
+                android:id="@+id/seekBarVolumen"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="8dp"
+                android:max="100"
+                android:progress="80"
+                android:progressTint="@color/colorRed"
+                android:thumbTint="@color/colorOrange"/>
+
+            <TextView
+                android:id="@+id/tvVolumen"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:text="80"
+                android:textColor="@color/colorCream"
+                android:textSize="11sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:gravity="center_vertical"
+        android:background="#150800">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvVideoTitulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorCream"
+                android:textSize="13sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvVideoCategoria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGray"
+                android:textSize="10sp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvVideoRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAmber"
+            android:textSize="12sp"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvListaVideo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="4dp"
+        android:background="#0F0700"/>
+
+</LinearLayout>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Top Header Bar -->
+    <LinearLayout
+        android:id="@+id/header_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/primary_brown"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_menu"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Menu"
+            android:src="@drawable/ic_menu"
+            android:tint="@color/text_white"/>
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_chef_hat"
+            android:tint="@color/primary_orange_light"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:text="ChefApp"
+            android:textColor="@color/text_white"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <ImageButton
+            android:id="@+id/btn_profile_header"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Profile"
+            android:src="@drawable/ic_person"
+            android:tint="@color/text_white"/>
+    </LinearLayout>
+
+    <!-- Main content: Sidebar + Fragment -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <!-- Sidebar -->
+        <LinearLayout
+            android:id="@+id/sidebar"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:background="@color/sidebar_bg"
+            android:gravity="top|center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="16dp">
+
+            <!-- Perfil -->
+            <LinearLayout
+                android:id="@+id/nav_perfil"
+                android:layout_width="56dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/bg_sidebar_active"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/ic_person"
+                    android:tint="@color/text_white"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Perfil"
+                    android:textColor="@color/text_white"
+                    android:textSize="10sp"
+                    android:layout_marginTop="3dp"/>
+            </LinearLayout>
+
+            <!-- Fotos -->
+            <LinearLayout
+                android:id="@+id/nav_fotos"
+                android:layout_width="56dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/ic_photo"
+                    android:tint="@color/sidebar_icon"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fotos"
+                    android:textColor="@color/sidebar_icon"
+                    android:textSize="10sp"
+                    android:layout_marginTop="3dp"/>
+            </LinearLayout>
+
+            <!-- Video -->
+            <LinearLayout
+                android:id="@+id/nav_video"
+                android:layout_width="56dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/ic_video"
+                    android:tint="@color/sidebar_icon"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Video"
+                    android:textColor="@color/sidebar_icon"
+                    android:textSize="10sp"
+                    android:layout_marginTop="3dp"/>
+            </LinearLayout>
+
+            <!-- Web -->
+            <LinearLayout
+                android:id="@+id/nav_web"
+                android:layout_width="56dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/ic_web"
+                    android:tint="@color/sidebar_icon"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Web"
+                    android:textColor="@color/sidebar_icon"
+                    android:textSize="10sp"
+                    android:layout_marginTop="3dp"/>
+            </LinearLayout>
+
+            <!-- Botones -->
+            <LinearLayout
+                android:id="@+id/nav_botones"
+                android:layout_width="56dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/ic_settings"
+                    android:tint="@color/sidebar_icon"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Botones"
+                    android:textColor="@color/sidebar_icon"
+                    android:textSize="10sp"
+                    android:layout_marginTop="3dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Fragment Container -->
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/bg_cream"/>
+
+    </LinearLayout>
+</LinearLayout>

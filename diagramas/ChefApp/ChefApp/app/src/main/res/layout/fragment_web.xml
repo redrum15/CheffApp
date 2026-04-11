@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_cream"
+    android:orientation="vertical">
+
+    <!-- URL Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="10dp">
+
+        <EditText
+            android:id="@+id/et_url"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_url_input"
+            android:drawableStart="@drawable/ic_web"
+            android:drawablePadding="8dp"
+            android:drawableTint="#888888"
+            android:hint="https://www.recetasgratis.net"
+            android:imeOptions="actionGo"
+            android:inputType="textUri"
+            android:paddingHorizontal="12dp"
+            android:singleLine="true"
+            android:text="https://www.recetasgratis.net"
+            android:textColor="@color/text_white"
+            android:textColorHint="#888888"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:id="@+id/btn_go"
+            android:layout_width="50dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_button_orange"
+            android:gravity="center"
+            android:text="Ir"
+            android:textColor="@color/text_white"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <!-- Navigation Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_difficulty_normal"
+            android:gravity="center"
+            android:paddingHorizontal="14dp"
+            android:text="← Atrás"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/btn_forward"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_difficulty_normal"
+            android:gravity="center"
+            android:paddingHorizontal="14dp"
+            android:text="Adelante →"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/btn_reload"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_difficulty_normal"
+            android:gravity="center"
+            android:paddingHorizontal="14dp"
+            android:text="↻ Recargar"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:text="✓ Listo"
+            android:textColor="@color/imc_normal"
+            android:textSize="12sp"/>
+    </LinearLayout>
+
+    <!-- WebView Container -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/bg_webview_container"
+        android:clipToOutline="true">
+
+        <android.webkit.WebView
+            android:id="@+id/webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <!-- Quick Access Section -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="ACCESOS RÁPIDOS"
+        android:textColor="@color/primary_orange"
+        android:textSize="13sp"
+        android:textStyle="bold"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_quick_access"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:paddingHorizontal="12dp"
+        android:nestedScrollingEnabled="false"/>
+
+</LinearLayout>

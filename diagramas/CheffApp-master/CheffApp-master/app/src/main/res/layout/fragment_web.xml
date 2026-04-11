@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0F0700">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:background="#1C0A00">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="6dp">
+
+            <EditText
+                android:id="@+id/etUrl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Ingresa una URL..."
+                android:inputType="textUri"
+                android:textSize="12sp"
+                android:textColor="@color/colorCream"
+                android:background="#2D1800"
+                android:padding="8dp"
+                android:imeOptions="actionGo"
+                android:singleLine="true"/>
+
+            <Button
+                android:id="@+id/btnIr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="Ir"
+                android:backgroundTint="@color/colorOrange"
+                android:textColor="@color/colorDark"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnAtras"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:text="← Atrás"
+                android:textSize="10sp"
+                android:backgroundTint="#2D1800"/>
+
+            <Button
+                android:id="@+id/btnAdelante"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:text="→ Adelante"
+                android:textSize="10sp"
+                android:backgroundTint="#2D1800"/>
+
+            <Button
+                android:id="@+id/btnRecargar"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:text="↻ Recargar"
+                android:textSize="10sp"
+                android:backgroundTint="#2D1800"/>
+
+            <TextView
+                android:id="@+id/tvEstado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="✓ Listo"
+                android:textColor="@color/colorFacil"
+                android:textSize="10sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressWebView"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:max="100"
+        android:visibility="gone"
+        android:progressTint="@color/colorOrange"/>
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="#150800">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ACCESOS RÁPIDOS"
+                android:textColor="@color/colorOrange"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp"/>
+
+            <LinearLayout android:id="@+id/itemAcceso1" android:layout_width="match_parent" android:layout_height="36dp" android:orientation="horizontal" android:gravity="center_vertical" android:padding="6dp" android:background="#1C0A00" android:layout_marginBottom="3dp" android:clickable="true" android:focusable="true">
+                <TextView android:id="@+id/tvAcceso1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:textColor="@color/colorCream" android:textSize="11sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="›" android:textColor="@color/colorOrange" android:textSize="16sp"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/itemAcceso2" android:layout_width="match_parent" android:layout_height="36dp" android:orientation="horizontal" android:gravity="center_vertical" android:padding="6dp" android:background="#1C0A00" android:layout_marginBottom="3dp" android:clickable="true" android:focusable="true">
+                <TextView android:id="@+id/tvAcceso2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:textColor="@color/colorCream" android:textSize="11sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="›" android:textColor="@color/colorOrange" android:textSize="16sp"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/itemAcceso3" android:layout_width="match_parent" android:layout_height="36dp" android:orientation="horizontal" android:gravity="center_vertical" android:padding="6dp" android:background="#1C0A00" android:layout_marginBottom="3dp" android:clickable="true" android:focusable="true">
+                <TextView android:id="@+id/tvAcceso3" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:textColor="@color/colorCream" android:textSize="11sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="›" android:textColor="@color/colorOrange" android:textSize="16sp"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/itemAcceso4" android:layout_width="match_parent" android:layout_height="36dp" android:orientation="horizontal" android:gravity="center_vertical" android:padding="6dp" android:background="#1C0A00" android:layout_marginBottom="8dp" android:clickable="true" android:focusable="true">
+                <TextView android:id="@+id/tvAcceso4" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:textColor="@color/colorCream" android:textSize="11sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="›" android:textColor="@color/colorOrange" android:textSize="16sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HISTORIAL"
+                android:textColor="@color/colorOrange"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp"/>
+
+            <LinearLayout android:id="@+id/rowHistorial1" android:layout_width="match_parent" android:layout_height="30dp" android:gravity="center_vertical" android:padding="6dp" android:background="#1C0A00" android:layout_marginBottom="2dp" android:clickable="true" android:focusable="true" android:visibility="gone">
+                <TextView android:id="@+id/tvHistorial1" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/colorGray" android:textSize="10sp" android:ellipsize="end" android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/rowHistorial2" android:layout_width="match_parent" android:layout_height="30dp" android:gravity="center_vertical" android:padding="6dp" android:background="#1C0A00" android:layout_marginBottom="2dp" android:clickable="true" android:focusable="true" android:visibility="gone">
+                <TextView android:id="@+id/tvHistorial2" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/colorGray" android:textSize="10sp" android:ellipsize="end" android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/rowHistorial3" android:layout_width="match_parent" android:layout_height="30dp" android:gravity="center_vertical" android:padding="6dp" android:background="#1C0A00" android:layout_marginBottom="2dp" android:clickable="true" android:focusable="true" android:visibility="gone">
+                <TextView android:id="@+id/tvHistorial3" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/colorGray" android:textSize="10sp" android:ellipsize="end" android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/rowHistorial4" android:layout_width="match_parent" android:layout_height="30dp" android:gravity="center_vertical" android:padding="6dp" android:background="#1C0A00" android:layout_marginBottom="2dp" android:clickable="true" android:focusable="true" android:visibility="gone">
+                <TextView android:id="@+id/tvHistorial4" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/colorGray" android:textSize="10sp" android:ellipsize="end" android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/rowHistorial5" android:layout_width="match_parent" android:layout_height="30dp" android:gravity="center_vertical" android:padding="6dp" android:background="#1C0A00" android:layout_marginBottom="2dp" android:clickable="true" android:focusable="true" android:visibility="gone">
+                <TextView android:id="@+id/tvHistorial5" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/colorGray" android:textSize="10sp" android:ellipsize="end" android:singleLine="true"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
