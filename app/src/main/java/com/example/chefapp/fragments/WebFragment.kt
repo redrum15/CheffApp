@@ -9,17 +9,16 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import com.example.chefapp.databinding.FragmentWebBinding
+import com.example.chefapp.helpers.NavegadorWeb
 
 class WebFragment : Fragment() {
 
     private var _binding: FragmentWebBinding? = null
     private val binding get() = _binding!!
 
-    // Variable URL actual
-    private var urlActual = "https://www.recetasgratis.net"
+    private val navegador = NavegadorWeb()
 
-    // Accesos rapidos
-    private val accesosRapidos = listOf(
+    private val accesosRapidosUI = listOf(
         Pair("🥘 RecetasGratis", "https://www.recetasgratis.net"),
         Pair("📺 Tasty",         "https://tasty.co"),
         Pair("⭐ TasteAtlas",    "https://www.tasteatlas.com"),
@@ -34,44 +33,41 @@ class WebFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Configurar WebView
         configurarWebView()
 
-        // Vincular eventos de botones de navegacion
         binding.btnIr.setOnClickListener {
             val url = binding.etUrl.text.toString()
             if (url.isNotEmpty()) cargarUrl(url)
         }
 
         binding.btnAtras.setOnClickListener {
+            navegador.atras()
             if (binding.webView.canGoBack()) binding.webView.goBack()
         }
 
         binding.btnAdelante.setOnClickListener {
+            navegador.adelante()
             if (binding.webView.canGoForward()) binding.webView.goForward()
         }
 
         binding.btnRecargar.setOnClickListener {
+            navegador.recargar()
             binding.webView.reload()
         }
 
-        // Accesos rapidos — evento clic en cada item
-        binding.itemAcceso1.setOnClickListener { cargarUrl(accesosRapidos[0].second) }
-        binding.itemAcceso2.setOnClickListener { cargarUrl(accesosRapidos[1].second) }
-        binding.itemAcceso3.setOnClickListener { cargarUrl(accesosRapidos[2].second) }
-        binding.itemAcceso4.setOnClickListener { cargarUrl(accesosRapidos[3].second) }
+        binding.itemAcceso1.setOnClickListener { cargarUrl(accesosRapidosUI[0].second) }
+        binding.itemAcceso2.setOnClickListener { cargarUrl(accesosRapidosUI[1].second) }
+        binding.itemAcceso3.setOnClickListener { cargarUrl(accesosRapidosUI[2].second) }
+        binding.itemAcceso4.setOnClickListener { cargarUrl(accesosRapidosUI[3].second) }
 
-        // Textos de accesos rapidos
-        binding.tvAcceso1.text = accesosRapidos[0].first
-        binding.tvAcceso2.text = accesosRapidos[1].first
-        binding.tvAcceso3.text = accesosRapidos[2].first
-        binding.tvAcceso4.text = accesosRapidos[3].first
+        binding.tvAcceso1.text = accesosRapidosUI[0].first
+        binding.tvAcceso2.text = accesosRapidosUI[1].first
+        binding.tvAcceso3.text = accesosRapidosUI[2].first
+        binding.tvAcceso4.text = accesosRapidosUI[3].first
 
-        // Cargar URL inicial
-        cargarUrl(urlActual)
+        cargarUrl(navegador.urlActual)
     }
 
-    // Configura el WebView con JavaScript habilitado
     private fun configurarWebView() {
         binding.webView.apply {
             settings.javaScriptEnabled = true
@@ -79,7 +75,6 @@ class WebFragment : Fragment() {
             settings.loadWithOverviewMode = true
             settings.useWideViewPort = true
 
-            // Detecta inicio y fin de carga
             webViewClient = object : WebViewClient() {
                 override fun onPageStarted(view: WebView?, url: String?, favicon: android.graphics.Bitmap?) {
                     binding.tvEstado.text = "● Cargando"
@@ -100,26 +95,23 @@ class WebFragment : Fragment() {
         }
     }
 
-    // Carga una URL y guarda en historial
-    private fun cargarUrl(url: String) {
-        val urlFinal = if (!url.startsWith("http")) "https://$url" else url
-        urlActual = urlFinal
-        binding.etUrl.setText(urlFinal)
-        binding.webView.loadUrl(urlFinal)
-        agregarAlHistorial(urlFinal)
-    }
-
-    // Agrega URL al historial visible (maximo 5)
-    private val historial = mutableListOf<String>()
-
-    private fun agregarAlHistorial(url: String) {
-        historial.remove(url)
-        historial.add(0, url)
-        if (historial.size > 5) historial.removeAt(historial.size - 1)
+    private fun mostrarHistorial() {
         actualizarHistorialUI()
     }
 
+    private fun cargarUrl(url: String) {
+        navegador.cargarPagina(url)
+        binding.etUrl.setText(navegador.urlActual)
+        binding.webView.loadUrl(navegador.urlActual)
+        actualizarHistorialUI()
+    }
+
+    fun agregarAccesoRapido(url: String) {
+        navegador.agregarAccesoRapido(url)
+    }
+
     private fun actualizarHistorialUI() {
+        val historial = navegador.mostrarHistorial()
         val tvs = listOf(
             binding.tvHistorial1, binding.tvHistorial2,
             binding.tvHistorial3, binding.tvHistorial4, binding.tvHistorial5

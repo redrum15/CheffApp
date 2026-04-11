@@ -13,14 +13,11 @@ import com.example.chefapp.R
 import com.example.chefapp.databinding.FragmentLeftBinding
 class LeftFragment : Fragment() {
 
-    // ViewBinding
     private var _binding: FragmentLeftBinding? = null
     private val binding get() = _binding!!
 
-    // Item activo actual
     private var itemActivo = "home"
 
-    // Mapa de items: tag -> par (contenedor, label)
     private lateinit var items: Map<String, Pair<LinearLayout, TextView>>
 
     override fun onCreateView(
@@ -35,7 +32,6 @@ class LeftFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Vincular IDs con variables
         items = mapOf(
             "perfil"  to Pair(binding.itemPerfil,  binding.labelPerfil),
             "fotos"   to Pair(binding.itemFotos,   binding.labelFotos),
@@ -44,18 +40,15 @@ class LeftFragment : Fragment() {
             "botones" to Pair(binding.itemBotones, binding.labelBotones),
         )
 
-        // Declarar eventos de clic para cada item
         binding.itemPerfil.setOnClickListener  { navegarA("perfil") }
         binding.itemFotos.setOnClickListener   { navegarA("fotos") }
         binding.itemVideo.setOnClickListener   { navegarA("video") }
         binding.itemWeb.setOnClickListener     { navegarA("web") }
         binding.itemBotones.setOnClickListener { navegarA("botones") }
 
-        // Aplicar estado inicial
         actualizarResaltado()
     }
 
-    // Navega al fragmento correspondiente
     private fun navegarA(tag: String) {
         val fragment = when (tag) {
             "perfil"  -> PerfilFragment()
@@ -68,13 +61,11 @@ class LeftFragment : Fragment() {
         (activity as? MainActivity)?.cargarFragmentoDerecho(fragment, tag)
     }
 
-    // Actualiza el item activo desde MainActivity
     fun setItemActivo(tag: String) {
         itemActivo = tag
         actualizarResaltado()
     }
 
-    // Aplica gradiente al item activo y color neutro a los demas
     private fun actualizarResaltado() {
         items.forEach { (tag, par) ->
             val (contenedor, label) = par

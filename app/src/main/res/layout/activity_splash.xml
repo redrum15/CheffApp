@@ -7,7 +7,6 @@
     android:orientation="vertical"
     android:padding="32dp">
 
-    <!-- Logo / Icono -->
     <TextView
         android:id="@+id/tvLogo"
         android:layout_width="wrap_content"
@@ -16,7 +15,6 @@
         android:textSize="72sp"
         android:layout_marginBottom="16dp"/>
 
-    <!-- Nombre app -->
     <TextView
         android:id="@+id/tvAppName"
         android:layout_width="wrap_content"
@@ -28,7 +26,6 @@
         android:fontFamily="serif"
         android:layout_marginBottom="8dp"/>
 
-    <!-- Subtítulo -->
     <TextView
         android:id="@+id/tvSubtitle"
         android:layout_width="wrap_content"
@@ -38,7 +35,6 @@
         android:textColor="#CCFFFFFF"
         android:layout_marginBottom="48dp"/>
 
-    <!-- Barra de progreso -->
     <ProgressBar
         android:id="@+id/progressBar"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
@@ -50,7 +46,6 @@
         android:progressBackgroundTint="#44FFFFFF"
         android:layout_marginBottom="16dp"/>
 
-    <!-- Estado carga -->
     <TextView
         android:id="@+id/tvCargando"
         android:layout_width="wrap_content"

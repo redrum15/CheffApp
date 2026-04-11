@@ -6,13 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Contenido principal -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- AppBar -->
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -21,26 +19,22 @@
             app:titleTextColor="@color/colorOrange"
             app:title="🍳 ChefApp"/>
 
-        <!-- Fila principal: LeftFragment + Contenido -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <!-- Fragmento izquierdo fijo -->
             <FrameLayout
                 android:id="@+id/frameLeft"
                 android:layout_width="66dp"
                 android:layout_height="match_parent"
                 android:background="@color/colorLeftBg"/>
 
-            <!-- Separador -->
             <View
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:background="#2D1800"/>
 
-            <!-- Fragmento derecho dinamico -->
             <FrameLayout
                 android:id="@+id/frameRight"
                 android:layout_width="0dp"
@@ -51,7 +45,6 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Navigation Drawer -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationView"
         android:layout_width="260dp"

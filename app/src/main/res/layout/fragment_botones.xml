@@ -10,7 +10,6 @@
         android:orientation="vertical"
         android:padding="12dp">
 
-        <!-- 1. RatingBar -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,7 +48,6 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- 2. Switch unidades -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -97,7 +95,6 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- 3. RadioGroup dificultad -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -155,7 +152,6 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- 4. SeekBar porciones + Calcular -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -212,7 +208,6 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- 5. CheckBox restricciones -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
