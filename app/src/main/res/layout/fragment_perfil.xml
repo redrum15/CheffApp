@@ -28,8 +28,7 @@
             android:layout_marginStart="10dp"
             android:textColor="@color/colorWhite"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:text="Marco Ríos"/>
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/btnEditar"
@@ -78,22 +77,22 @@
 
                     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="4dp">
                         <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Edad" android:textColor="@color/colorGray" android:textSize="13sp"/>
-                        <TextView android:id="@+id/tvEdad" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="28 años" android:textStyle="bold" android:textSize="13sp"/>
+                        <TextView android:id="@+id/tvEdad" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textStyle="bold" android:textSize="13sp"/>
                     </LinearLayout>
 
                     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="4dp">
                         <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Peso actual" android:textColor="@color/colorGray" android:textSize="13sp"/>
-                        <TextView android:id="@+id/tvPeso" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="72 kg" android:textStyle="bold" android:textSize="13sp"/>
+                        <TextView android:id="@+id/tvPeso" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textStyle="bold" android:textSize="13sp"/>
                     </LinearLayout>
 
                     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="4dp">
                         <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Estatura" android:textColor="@color/colorGray" android:textSize="13sp"/>
-                        <TextView android:id="@+id/tvEstatura" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.75 m" android:textStyle="bold" android:textSize="13sp"/>
+                        <TextView android:id="@+id/tvEstatura" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textStyle="bold" android:textSize="13sp"/>
                     </LinearLayout>
 
                     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
                         <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="IMC" android:textColor="@color/colorGray" android:textSize="13sp"/>
-                        <TextView android:id="@+id/tvImc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="23.5 — Normal ✅" android:textStyle="bold" android:textSize="13sp"/>
+                        <TextView android:id="@+id/tvImc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textStyle="bold" android:textSize="13sp"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -157,9 +156,6 @@
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
-            <!-- Alergias -->
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -173,7 +169,46 @@
                     android:orientation="vertical"
                     android:padding="12dp">
 
-                    <!-- 🔴 TÍTULO -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🥗 PREFERENCIAS DIETÉTICAS"
+                        android:textColor="@color/colorOrange"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroupPreferencias"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/btnAgregarPreferencia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="8dp"
+                        android:text="+ Agregar"
+                        android:textSize="11sp"
+                        android:backgroundTint="@color/colorCream" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Alergias -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -183,74 +218,19 @@
                         android:textStyle="bold"
                         android:layout_marginBottom="8dp" />
 
-                    <!-- FILA 1 -->
-                    <LinearLayout
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroupAlergias"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="4dp">
+                        android:layout_height="wrap_content" />
 
-                        <Button
-                            android:id="@+id/btnMariscos"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginEnd="4dp"
-                            android:text="Mariscos 🦐"
-                            android:textSize="11sp"
-                            android:gravity="center"
-                            android:singleLine="true"
-                            android:backgroundTint="#EB9E9E"/>
-
-                        <Button
-                            android:id="@+id/btnLacteos"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Lácteos 🥛"
-                            android:textSize="11sp"
-                            android:gravity="center"
-                            android:singleLine="true"
-                            android:backgroundTint="#EB9E9E"/>
-                    </LinearLayout>
-
-                    <!-- FILA 2 -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <Button
-                            android:id="@+id/btnFrutosSecos"
-                            android:layout_width="182dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="-1"
-                            android:backgroundTint="#EB9E9E"
-                            android:gravity="center"
-                            android:singleLine="true"
-                            android:text="Frutos secos 🥜"
-                            android:textSize="11sp" />
-
-                        <!-- ESPACIO PARA EMPUJAR -->
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1" />
-
-                        <!-- BOTÓN AGREGAR A LA DERECHA -->
-                        <Button
-                            android:id="@+id/btnAgregarAlergia"
-                            android:layout_width="175dp"
-                            android:singleLine="true"
-                            android:layout_height="35dp"
-                            android:background="#1A1919"
-                            android:backgroundTint="@color/colorCream"
-                            android:maxLength="19"
-                            android:maxLines="1"
-                            android:text="+ Agregar"
-                            android:layout_weight="1"
-                            android:textSize="11sp" />
-                    </LinearLayout>
+                    <Button
+                        android:id="@+id/btnAgregarAlergia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="8dp"
+                        android:text="+ Agregar"
+                        android:textSize="11sp"
+                        android:backgroundTint="@color/colorCream" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
