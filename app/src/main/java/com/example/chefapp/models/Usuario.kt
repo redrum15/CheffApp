@@ -53,7 +53,6 @@ data class Usuario(
     }
 
     fun calificarReceta(receta: Receta, valor: Int) {
-        // En una implementación real, se crearía una Calificacion y se asociaría
     }
 
     fun calcularIMC(): Float {
@@ -73,7 +72,14 @@ object UsuarioActual {
         peso = 72f,
         estatura = 1.75f,
         objetivoNutricional = ObjetivoNutricional.MANTENER_PESO,
-        alergias = mutableListOf(),
-        preferencias = mutableListOf()
+        alergias = mutableListOf(
+            Alergia(1, "Mariscos \uD83E\uDD90"),
+            Alergia(2, "Lácteos \uD83E\uDD5B"),
+            Alergia(3, "Frutos secos \uD83E\uDD5C")
+        ),
+        preferencias = mutableListOf(
+            PreferenciaDietetica(1, TipoDieta.SIN_GLUTEN),
+            PreferenciaDietetica(2, TipoDieta.SIN_LACTOSA)
+        )
     )
 }
