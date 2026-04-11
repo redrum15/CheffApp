@@ -16,10 +16,8 @@ class WebFragment : Fragment() {
     private var _binding: FragmentWebBinding? = null
     private val binding get() = _binding!!
 
-    // Navegador web del diagrama UML
     private val navegador = NavegadorWeb()
 
-    // Accesos rapidos con etiquetas para UI
     private val accesosRapidosUI = listOf(
         Pair("🥘 RecetasGratis", "https://www.recetasgratis.net"),
         Pair("📺 Tasty",         "https://tasty.co"),
@@ -35,10 +33,8 @@ class WebFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Configurar WebView
         configurarWebView()
 
-        // Vincular eventos de botones de navegacion
         binding.btnIr.setOnClickListener {
             val url = binding.etUrl.text.toString()
             if (url.isNotEmpty()) cargarUrl(url)
@@ -59,23 +55,19 @@ class WebFragment : Fragment() {
             binding.webView.reload()
         }
 
-        // Accesos rapidos — evento clic en cada item
         binding.itemAcceso1.setOnClickListener { cargarUrl(accesosRapidosUI[0].second) }
         binding.itemAcceso2.setOnClickListener { cargarUrl(accesosRapidosUI[1].second) }
         binding.itemAcceso3.setOnClickListener { cargarUrl(accesosRapidosUI[2].second) }
         binding.itemAcceso4.setOnClickListener { cargarUrl(accesosRapidosUI[3].second) }
 
-        // Textos de accesos rapidos
         binding.tvAcceso1.text = accesosRapidosUI[0].first
         binding.tvAcceso2.text = accesosRapidosUI[1].first
         binding.tvAcceso3.text = accesosRapidosUI[2].first
         binding.tvAcceso4.text = accesosRapidosUI[3].first
 
-        // Cargar URL inicial
         cargarUrl(navegador.urlActual)
     }
 
-    // Configura el WebView con JavaScript habilitado
     private fun configurarWebView() {
         binding.webView.apply {
             settings.javaScriptEnabled = true
@@ -83,7 +75,6 @@ class WebFragment : Fragment() {
             settings.loadWithOverviewMode = true
             settings.useWideViewPort = true
 
-            // Detecta inicio y fin de carga
             webViewClient = object : WebViewClient() {
                 override fun onPageStarted(view: WebView?, url: String?, favicon: android.graphics.Bitmap?) {
                     binding.tvEstado.text = "● Cargando"
@@ -104,12 +95,10 @@ class WebFragment : Fragment() {
         }
     }
 
-    // Muestra el historial de navegación
     private fun mostrarHistorial() {
         actualizarHistorialUI()
     }
 
-    // Carga una URL y guarda en historial via NavegadorWeb
     private fun cargarUrl(url: String) {
         navegador.cargarPagina(url)
         binding.etUrl.setText(navegador.urlActual)
@@ -117,7 +106,6 @@ class WebFragment : Fragment() {
         actualizarHistorialUI()
     }
 
-    // Agrega acceso rápido
     fun agregarAccesoRapido(url: String) {
         navegador.agregarAccesoRapido(url)
     }

@@ -5,13 +5,11 @@
     android:orientation="vertical"
     android:background="#0F0700">
 
-    <!-- YouTube WebView -->
     <WebView
         android:id="@+id/webViewVideo"
         android:layout_width="match_parent"
         android:layout_height="155dp"/>
 
-    <!-- Controles reproduccion -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +17,6 @@
         android:padding="8dp"
         android:background="#1C0A00">
 
-        <!-- Fila anterior/play/siguiente -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -56,7 +53,6 @@
                 android:backgroundTint="#2D1800"/>
         </LinearLayout>
 
-        <!-- Fila volumen -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -93,7 +89,6 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Info receta activa -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -132,7 +127,6 @@
             android:textSize="12sp"/>
     </LinearLayout>
 
-    <!-- Lista de recetas -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvListaVideo"
         android:layout_width="match_parent"

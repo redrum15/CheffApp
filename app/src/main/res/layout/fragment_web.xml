@@ -5,7 +5,6 @@
     android:orientation="vertical"
     android:background="#0F0700">
 
-    <!-- Barra URL -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,7 +12,6 @@
         android:padding="8dp"
         android:background="#1C0A00">
 
-        <!-- URL + boton Ir -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,7 +43,6 @@
                 android:textStyle="bold"/>
         </LinearLayout>
 
-        <!-- Botones navegacion -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -93,7 +90,6 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Barra de progreso WebView -->
     <ProgressBar
         android:id="@+id/progressWebView"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
@@ -103,14 +99,12 @@
         android:visibility="gone"
         android:progressTint="@color/colorOrange"/>
 
-    <!-- WebView expandido -->
     <WebView
         android:id="@+id/webView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
-    <!-- Panel accesos rapidos + historial -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="180dp"
@@ -122,7 +116,6 @@
             android:orientation="vertical"
             android:padding="8dp">
 
-            <!-- Accesos rapidos -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -152,7 +145,6 @@
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="›" android:textColor="@color/colorOrange" android:textSize="16sp"/>
             </LinearLayout>
 
-            <!-- Historial -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

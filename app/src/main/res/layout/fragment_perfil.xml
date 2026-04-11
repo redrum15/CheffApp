@@ -6,7 +6,6 @@
     android:orientation="vertical"
     android:background="@color/colorBackground">
 
-    <!-- Header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,7 +38,6 @@
             android:backgroundTint="@color/colorOrange"/>
     </LinearLayout>
 
-    <!-- Contenido scrollable -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -51,7 +49,6 @@
             android:orientation="vertical"
             android:padding="12dp">
 
-            <!-- Info Personal -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -98,7 +95,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Objetivo -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -197,7 +193,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Alergias -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -238,7 +233,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Favoritos -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -252,7 +246,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- No gustan -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

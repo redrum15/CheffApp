@@ -14,10 +14,8 @@ class BotonesFragment : Fragment() {
     private var _binding: FragmentBotonesBinding? = null
     private val binding get() = _binding!!
 
-    // Receta activa para cálculos (primera por defecto)
     private var recetaActual: Receta = RecetaData.recetas.first()
 
-    // Variables vinculadas con widgets
     private var porciones = recetaActual.porciones
     private var unidadActual = UnidadMedida.GRAMOS
 
@@ -29,17 +27,14 @@ class BotonesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 1. RatingBar — calificar receta
         binding.ratingBar.setOnRatingBarChangeListener { _, rating, _ ->
             calificarReceta(rating.toInt())
         }
 
-        // 2. Switch — unidades de medida
         binding.switchUnidades.setOnCheckedChangeListener { _, isChecked ->
             cambiarUnidades(isChecked)
         }
 
-        // 3. RadioGroup — nivel de dificultad
         binding.radioGroupDificultad.setOnCheckedChangeListener { _, checkedId ->
             seleccionarRestricciones()
             val dificultad = when (checkedId) {
@@ -51,8 +46,7 @@ class BotonesFragment : Fragment() {
             binding.tvDificultadSeleccionada.text = dificultad
         }
 
-        // 4. SeekBar — porciones
-        binding.seekBarPorciones.max = 9 // 1 a 10
+        binding.seekBarPorciones.max = 9
         binding.seekBarPorciones.progress = porciones - 1
         binding.tvPorciones.text = "$porciones porciones"
 
@@ -65,19 +59,16 @@ class BotonesFragment : Fragment() {
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
 
-        // Boton Calcular ingredientes
         binding.btnCalcular.setOnClickListener {
             calcularIngredientes()
         }
 
-        // 5. CheckBox — restricciones alimentarias
         binding.checkGluten.setOnCheckedChangeListener { _, _ -> seleccionarRestricciones() }
         binding.checkVegano.setOnCheckedChangeListener { _, _ -> seleccionarRestricciones() }
         binding.checkLactosa.setOnCheckedChangeListener { _, _ -> seleccionarRestricciones() }
         binding.checkMariscos.setOnCheckedChangeListener { _, _ -> seleccionarRestricciones() }
     }
 
-    // Califica la receta actual usando el modelo
     private fun calificarReceta(valor: Int) {
         val etiqueta = when (valor) {
             1 -> "Malo 😞"
@@ -91,13 +82,11 @@ class BotonesFragment : Fragment() {
         UsuarioActual.usuario.calificarReceta(recetaActual, valor)
     }
 
-    // Cambia las unidades de medida usando el enum del modelo
     private fun cambiarUnidades(usarOnzas: Boolean) {
         unidadActual = if (usarOnzas) UnidadMedida.ONZAS else UnidadMedida.GRAMOS
         binding.tvUnidadActiva.text = if (unidadActual == UnidadMedida.GRAMOS) "Gramos / °C" else "Onzas / °F"
     }
 
-    // Actualiza restricciones en el modelo de usuario
     private fun seleccionarRestricciones() {
         val usuario = UsuarioActual.usuario
         usuario.alergias.clear()
@@ -107,7 +96,6 @@ class BotonesFragment : Fragment() {
         if (binding.checkMariscos.isChecked) usuario.agregarAlergia(Alergia(3, "Mariscos"))
     }
 
-    // Calcula ingredientes escalados usando el modelo Receta
     private fun calcularIngredientes() {
         val recetaAjustada = recetaActual.ajustarPorciones(porciones)
 

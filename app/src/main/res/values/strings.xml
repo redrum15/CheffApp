@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">ChefApp</string>
 
-    <!-- Navegacion -->
     <string name="nav_perfil">Perfil</string>
     <string name="nav_fotos">Fotos</string>
     <string name="nav_video">Video</string>
@@ -10,7 +9,6 @@
     <string name="nav_botones">Botones</string>
     <string name="nav_cerrar_sesion">Cerrar Sesión</string>
 
-    <!-- Home -->
     <string name="home_greeting">¡Hola, Chef!</string>
     <string name="home_subtitle">¿Qué cocinamos hoy?</string>
     <string name="home_recetas">Recetas</string>
@@ -23,7 +21,6 @@
     <string name="btn_ver">Ver →</string>
     <string name="btn_guardar">Guardar</string>
 
-    <!-- Perfil -->
     <string name="perfil_titulo">Mi Perfil</string>
     <string name="perfil_editar">✏️ Editar</string>
     <string name="perfil_info">INFORMACIÓN PERSONAL</string>
@@ -40,16 +37,13 @@
     <string name="perfil_no_gustan">ALIMENTOS QUE NO ME GUSTAN</string>
     <string name="perfil_agregar">+ Agregar</string>
 
-    <!-- Fotos -->
     <string name="fotos_titulo">Galería de Recetas</string>
     <string name="btn_ver_receta">Ver receta</string>
 
-    <!-- Video -->
     <string name="video_titulo">Tutoriales en Video</string>
     <string name="video_anterior">⏮</string>
     <string name="video_siguiente">⏭</string>
 
-    <!-- Web -->
     <string name="web_titulo">Explorador Web</string>
     <string name="web_ir">Ir</string>
     <string name="web_atras">← Atrás</string>
@@ -60,7 +54,6 @@
     <string name="web_cargando">● Cargando</string>
     <string name="web_listo">✓ Listo</string>
 
-    <!-- Botones -->
     <string name="botones_titulo">Controles</string>
     <string name="botones_rating">CALIFICAR RECETA</string>
     <string name="botones_unidades">UNIDADES DE MEDIDA</string>

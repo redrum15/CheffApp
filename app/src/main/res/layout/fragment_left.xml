@@ -6,7 +6,6 @@
     android:orientation="vertical"
     android:paddingTop="8dp">
 
-    <!-- Item Perfil -->
     <LinearLayout
         android:id="@+id/itemPerfil"
         android:layout_width="match_parent"
@@ -32,7 +31,6 @@
             android:layout_marginTop="2dp"/>
     </LinearLayout>
 
-    <!-- Item Fotos -->
     <LinearLayout
         android:id="@+id/itemFotos"
         android:layout_width="match_parent"
@@ -58,7 +56,6 @@
             android:layout_marginTop="2dp"/>
     </LinearLayout>
 
-    <!-- Item Video -->
     <LinearLayout
         android:id="@+id/itemVideo"
         android:layout_width="match_parent"
@@ -84,7 +81,6 @@
             android:layout_marginTop="2dp"/>
     </LinearLayout>
 
-    <!-- Item Web -->
     <LinearLayout
         android:id="@+id/itemWeb"
         android:layout_width="match_parent"
@@ -110,7 +106,6 @@
             android:layout_marginTop="2dp"/>
     </LinearLayout>
 
-    <!-- Item Botones -->
     <LinearLayout
         android:id="@+id/itemBotones"
         android:layout_width="match_parent"

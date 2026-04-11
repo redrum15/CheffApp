@@ -19,7 +19,6 @@ class PerfilFragment : Fragment() {
     private var _binding: FragmentPerfilBinding? = null
     private val binding get() = _binding!!
 
-    // Usuario del modelo
     private val usuario = UsuarioActual.usuario
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -30,33 +29,27 @@ class PerfilFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Cargar foto de perfil con Glide
         Glide.with(this)
             .load("https://randomuser.me/api/portraits/men/32.jpg")
             .circleCrop()
             .into(binding.ivFotoPerfil)
 
-        // Vincular datos desde el modelo Usuario
         mostrarPerfil()
         mostrarPreferencias()
         mostrarAlergias()
 
-        // Evento boton Editar
         binding.btnEditar.setOnClickListener {
             usuario.editarPerfil()
             binding.btnEditar.text = "Guardado ✓"
         }
 
-        // Eventos botones objetivo
         binding.btnBajar.setOnClickListener    { seleccionarObjetivo(ObjetivoNutricional.BAJAR_PESO) }
         binding.btnMantener.setOnClickListener { seleccionarObjetivo(ObjetivoNutricional.MANTENER_PESO) }
         binding.btnSubir.setOnClickListener    { seleccionarObjetivo(ObjetivoNutricional.SUBIR_PESO) }
 
-        // Estado inicial objetivo
         seleccionarObjetivo(usuario.objetivoNutricional)
     }
 
-    // Muestra los datos del perfil del usuario
     private fun mostrarPerfil() {
         binding.tvNombre.text   = "${usuario.nombre} ${usuario.apellido}"
         binding.tvEdad.text     = "${usuario.edad} años"

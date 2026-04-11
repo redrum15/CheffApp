@@ -42,7 +42,7 @@ data class Receta(
     }
 }
 
-// ── Datos de recetas ── fuente única de verdad para toda la app ──────────────
+
 object RecetaData {
 
     private val catItaliana = Categoria(1, "Italiana", "Cocina italiana clásica")

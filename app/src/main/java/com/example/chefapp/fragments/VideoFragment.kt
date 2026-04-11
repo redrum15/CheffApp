@@ -22,7 +22,6 @@ class VideoFragment : Fragment() {
     private var _binding: FragmentVideoBinding? = null
     private val binding get() = _binding!!
 
-    // Reproductor del diagrama UML
     private val reproductor = ReproductorVideo()
 
     private var indiceActivo = 0

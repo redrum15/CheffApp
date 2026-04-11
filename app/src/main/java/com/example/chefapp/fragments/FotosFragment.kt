@@ -22,7 +22,6 @@ class FotosFragment : Fragment() {
     private var _binding: FragmentFotosBinding? = null
     private val binding get() = _binding!!
 
-    // Galería de recetas del diagrama UML
     private val galeria = GaleriaRecetas()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -35,7 +34,6 @@ class FotosFragment : Fragment() {
 
         galeria.mostrarGaleria()
 
-        // Configurar RecyclerView con adapter
         val adapter = RecipeAdapter(galeria.recetas) { receta ->
             galeria.seleccionarReceta(receta)
             mostrarDetalle(receta)
@@ -43,11 +41,9 @@ class FotosFragment : Fragment() {
         binding.rvRecetas.layoutManager = LinearLayoutManager(requireContext())
         binding.rvRecetas.adapter = adapter
 
-        // Mostrar primera receta por defecto
         mostrarDetalle(galeria.recetas.first())
     }
 
-    // Actualiza el panel de detalle con la receta seleccionada
     private fun mostrarDetalle(receta: Receta) {
         binding.tvDetalleTitulo.text     = receta.nombre
         binding.tvDetalleCategoria.text  = receta.categoria?.nombre ?: ""
@@ -65,13 +61,11 @@ class FotosFragment : Fragment() {
             .centerCrop()
             .into(binding.ivDetalleImagen)
 
-        // Evento boton Guardar
         binding.btnGuardar.setOnClickListener {
             binding.btnGuardar.text = "✓ Guardado"
             binding.btnGuardar.isEnabled = false
         }
 
-        // Evento boton Ver receta
         binding.btnVerReceta.setOnClickListener {
             binding.btnVerReceta.text = "Abriendo..."
         }
@@ -91,7 +85,7 @@ class FotosFragment : Fragment() {
     }
 }
 
-// ── Adapter RecyclerView ─────────────────────────────────────────────────────
+
 class RecipeAdapter(
     private val recetas: List<Receta>,
     private val onClick: (Receta) -> Unit
@@ -110,7 +104,6 @@ class RecipeAdapter(
         val receta = recetas[position]
         val ctx    = holder.itemView.context
 
-        // Vincular datos con IDs del item_recipe.xml
         holder.binding.tvItemTitulo.text     = receta.nombre
         holder.binding.tvItemCategoria.text  = receta.categoria?.nombre ?: ""
         holder.binding.tvItemTiempo.text     = "${receta.porciones} porciones"
@@ -121,18 +114,15 @@ class RecipeAdapter(
         }
         holder.binding.tvItemRating.text     = "⭐ ${receta.calificacionPromedio}"
 
-        // Cargar thumbnail con Glide
         Glide.with(ctx)
             .load(receta.imagenUrl)
             .centerCrop()
             .into(holder.binding.ivItemThumbnail)
 
-        // Resaltar item seleccionado
         holder.binding.root.setBackgroundResource(
             if (position == seleccionado) R.drawable.bg_item_active else R.drawable.bg_item_normal
         )
 
-        // Evento clic en item
         holder.binding.root.setOnClickListener {
             val anterior = seleccionado
             seleccionado = position

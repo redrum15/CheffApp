@@ -5,7 +5,6 @@
     android:orientation="vertical"
     android:background="@color/colorBackground">
 
-    <!-- Panel superior — lista de recetas (48%) -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRecetas"
         android:layout_width="match_parent"
@@ -13,20 +12,17 @@
         android:layout_weight="48"
         android:padding="6dp"/>
 
-    <!-- Divisor -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/colorOrange"/>
 
-    <!-- Panel inferior — detalle (52%) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="52"
         android:orientation="vertical">
 
-        <!-- Imagen grande con overlay -->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="110dp">
@@ -67,7 +63,6 @@
             </LinearLayout>
         </FrameLayout>
 
-        <!-- Tags -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -108,7 +103,6 @@
                 android:paddingVertical="2dp"/>
         </LinearLayout>
 
-        <!-- Descripcion -->
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -124,7 +118,6 @@
                 android:lineSpacingMultiplier="1.4"/>
         </ScrollView>
 
-        <!-- Botones -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

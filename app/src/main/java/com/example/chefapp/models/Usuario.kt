@@ -60,7 +60,7 @@ data class Usuario(
     }
 }
 
-// ── Usuario por defecto de la app ────────────────────────────────────────────
+
 object UsuarioActual {
     val usuario = Usuario(
         id = 1,
