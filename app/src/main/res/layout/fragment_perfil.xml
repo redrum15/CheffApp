@@ -29,13 +29,18 @@
             android:textSize="16sp"
             android:textStyle="bold"/>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnEditar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="0dp"
+            android:paddingHorizontal="14dp"
             android:text="✏️ Editar"
             android:textSize="11sp"
-            android:backgroundTint="@color/colorOrange"/>
+            android:backgroundTint="@null"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:background="@drawable/bg_button_edit"/>
     </LinearLayout>
 
     <ScrollView
@@ -179,16 +184,19 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
-                    <Button
+                    <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btnAgregarPreferencia"
                         android:layout_width="wrap_content"
                         android:layout_height="35dp"
                         android:layout_marginTop="8dp"
+                        android:minWidth="0dp"
+                        android:paddingHorizontal="14dp"
                         android:text="+ Agregar"
                         android:textSize="11sp"
                         android:textStyle="bold"
-                        android:textColor="@color/colorBlack"
-                        android:backgroundTint="@color/colorCream" />
+                        android:backgroundTint="@null"
+                        android:textColor="@color/colorGray"
+                        android:background="@drawable/bg_button_add" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -220,16 +228,19 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
-                    <Button
+                    <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btnAgregarAlergia"
                         android:layout_width="wrap_content"
                         android:layout_height="35dp"
                         android:layout_marginTop="8dp"
+                        android:minWidth="0dp"
+                        android:paddingHorizontal="14dp"
                         android:text="+ Agregar"
                         android:textSize="11sp"
                         android:textStyle="bold"
-                        android:textColor="@color/colorBlack"
-                        android:backgroundTint="@color/colorCream" />
+                        android:backgroundTint="@null"
+                        android:textColor="@color/colorGray"
+                        android:background="@drawable/bg_button_add" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -243,6 +254,19 @@
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="12dp">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="❤️ ALIMENTOS FAVORITOS" android:textColor="@color/colorOrange" android:textSize="11sp" android:textStyle="bold" android:layout_marginBottom="8dp"/>
                     <com.google.android.material.chip.ChipGroup android:id="@+id/chipGroupFavoritos" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnAgregarFavorito"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="8dp"
+                        android:minWidth="0dp"
+                        android:paddingHorizontal="14dp"
+                        android:text="+ Agregar"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:backgroundTint="@null"
+                        android:textColor="@color/colorGray"
+                        android:background="@drawable/bg_button_add" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -255,6 +279,19 @@
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="12dp">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🚫 ALIMENTOS QUE NO ME GUSTAN" android:textColor="@color/colorBrown" android:textSize="11sp" android:textStyle="bold" android:layout_marginBottom="8dp"/>
                     <com.google.android.material.chip.ChipGroup android:id="@+id/chipGroupNoGustan" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnAgregarNoGusta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="8dp"
+                        android:minWidth="0dp"
+                        android:paddingHorizontal="14dp"
+                        android:text="+ Agregar"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:backgroundTint="@null"
+                        android:textColor="@color/colorGray"
+                        android:background="@drawable/bg_button_add" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
