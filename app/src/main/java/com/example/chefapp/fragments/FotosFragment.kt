@@ -14,7 +14,6 @@ import com.example.chefapp.databinding.ItemRecipeBinding
 import com.example.chefapp.helpers.GaleriaRecetas
 import com.example.chefapp.models.Dificultad
 import com.example.chefapp.models.Receta
-import com.example.chefapp.models.RecetaData
 
 
 class FotosFragment : Fragment() {
@@ -40,6 +39,7 @@ class FotosFragment : Fragment() {
         }
         binding.rvRecetas.layoutManager = LinearLayoutManager(requireContext())
         binding.rvRecetas.adapter = adapter
+        binding.tvGaleriaCount.text = "${galeria.recetas.size} recetas"
 
         mostrarDetalle(galeria.recetas.first())
     }
@@ -47,7 +47,7 @@ class FotosFragment : Fragment() {
     private fun mostrarDetalle(receta: Receta) {
         binding.tvDetalleTitulo.text     = receta.nombre
         binding.tvDetalleCategoria.text  = receta.categoria?.nombre ?: ""
-        binding.tvDetalleTiempo.text     = "${receta.porciones} porciones"
+        binding.tvDetalleTiempo.text     = "${receta.porciones} porc."
         binding.tvDetalleDificultad.text = when (receta.dificultad) {
             Dificultad.FACIL -> "Fácil"
             Dificultad.MEDIO -> "Medio"
@@ -106,7 +106,8 @@ class RecipeAdapter(
 
         holder.binding.tvItemTitulo.text     = receta.nombre
         holder.binding.tvItemCategoria.text  = receta.categoria?.nombre ?: ""
-        holder.binding.tvItemTiempo.text     = "${receta.porciones} porciones"
+        holder.binding.tvItemTiempo.text     = receta.videos.firstOrNull()?.duracion?.div(60)?.let { "$it min" }
+            ?: "${receta.porciones} porciones"
         holder.binding.tvItemDificultad.text = when (receta.dificultad) {
             Dificultad.FACIL -> "Fácil"
             Dificultad.MEDIO -> "Medio"
@@ -124,11 +125,14 @@ class RecipeAdapter(
         )
 
         holder.binding.root.setOnClickListener {
+            val currentPosition = holder.bindingAdapterPosition
+            if (currentPosition == RecyclerView.NO_POSITION) return@setOnClickListener
+
             val anterior = seleccionado
-            seleccionado = position
+            seleccionado = currentPosition
             notifyItemChanged(anterior)
-            notifyItemChanged(position)
-            onClick(receta)
+            notifyItemChanged(currentPosition)
+            onClick(recetas[currentPosition])
         }
     }
 
