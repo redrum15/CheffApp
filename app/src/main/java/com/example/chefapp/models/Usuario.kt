@@ -67,7 +67,7 @@ object UsuarioActual {
         nombre = "Jorge",
         apellido = "Martinez",
         email = "jorge.martinez@email.com",
-        contrasena = "",
+        contrasena = "1234",
         edad = 38,
         peso = 65f,
         estatura = 1.79f,

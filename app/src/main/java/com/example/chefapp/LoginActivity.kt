@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chefapp.databinding.ActivityLoginBinding
+import com.example.chefapp.models.UsuarioActual
 
 class LoginActivity : AppCompatActivity() {
 
@@ -24,8 +25,8 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // Validación básica (aquí conectarías con tu backend/Firebase)
-            if (email == "jorge.martinez@email.com" && password == "1234") {
+            val usuario = UsuarioActual.usuario
+            if (email == usuario.email && password == usuario.contrasena) {
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             } else {
@@ -34,7 +35,6 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.tvRegistro.setOnClickListener {
-            // startActivity(Intent(this, RegisterActivity::class.java))
             Toast.makeText(this, "Próximamente...", Toast.LENGTH_SHORT).show()
         }
     }
