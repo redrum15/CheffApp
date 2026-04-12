@@ -39,7 +39,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun irAMainActivity() {
-        startActivity(Intent(this, LoginActivity::class.java)) //
+        startActivity(Intent(this, LoginActivity::class.java))
         finish()
     }
 }

@@ -215,7 +215,6 @@
                     android:orientation="vertical"
                     android:padding="12dp">
 
-                    <!-- TÍTULO -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -225,7 +224,6 @@
                         android:textStyle="bold"
                         android:layout_marginBottom="8dp" />
 
-                    <!-- BOTONES RÁPIDOS -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -242,11 +240,8 @@
                         android:layout_marginBottom="6dp">
 
 
-                        <!-- BOTÓN AGREGAR -->
-
                     </LinearLayout>
 
-                    <!-- CHIPS DINÁMICOS -->
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btnAgregarAlergia"
                         android:layout_width="wrap_content"
@@ -281,7 +276,6 @@
                     android:orientation="vertical"
                     android:padding="12dp">
 
-                    <!-- TÍTULO -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -326,7 +320,6 @@
                     android:orientation="vertical"
                     android:padding="12dp">
 
-                    <!-- TÍTULO -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -356,7 +349,6 @@
                         android:textSize="11sp"
                         android:textStyle="bold" />
 
-                    <!-- BOTÓN AGREGAR A LA DERECHA -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

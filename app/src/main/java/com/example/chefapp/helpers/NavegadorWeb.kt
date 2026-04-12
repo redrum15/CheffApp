@@ -25,9 +25,9 @@ class NavegadorWeb {
 
     fun mostrarHistorial(): List<String> = historial.toList()
 
-    fun atras() { /* delegado a WebView.goBack() */ }
-    fun adelante() { /* delegado a WebView.goForward() */ }
-    fun recargar() { /* delegado a WebView.reload() */ }
+    fun atras() { }
+    fun adelante() { }
+    fun recargar() { }
 
     fun agregarAccesoRapido(url: String) {
         if (!accesosRapidos.contains(url)) {

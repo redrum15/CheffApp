@@ -10,9 +10,9 @@ class GaleriaRecetas {
     var indiceActual: Int = 0
         private set
 
-    fun mostrarGaleria() { /* muestra la lista */ }
+    fun mostrarGaleria() { }
 
-    fun ampliarImagen(receta: Receta) { /* muestra imagen a pantalla completa */ }
+    fun ampliarImagen(receta: Receta) { }
 
     fun siguiente(): Receta? {
         if (indiceActual < recetas.size - 1) {

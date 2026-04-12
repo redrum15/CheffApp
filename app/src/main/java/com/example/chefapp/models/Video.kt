@@ -7,7 +7,7 @@ data class Video(
     val duracion: Int,
     val thumbnail: String
 ) {
-    fun reproducir() { /* delegado al reproductor */ }
-    fun pausar() { /* delegado al reproductor */ }
-    fun detener() { /* delegado al reproductor */ }
+    fun reproducir() { }
+    fun pausar() { }
+    fun detener() { }
 }

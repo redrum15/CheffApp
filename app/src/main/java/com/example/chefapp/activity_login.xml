@@ -12,7 +12,6 @@
         android:padding="32dp"
         android:minHeight="600dp">
 
-        <!-- Logo y título -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,7 +37,6 @@
             android:textColor="@color/colorGray"
             android:layout_marginBottom="40dp"/>
 
-        <!-- Campo email -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -63,7 +61,6 @@
             android:textColorHint="@color/colorGray"
             android:layout_marginBottom="16dp"/>
 
-        <!-- Campo contraseña -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -88,7 +85,6 @@
             android:textColorHint="@color/colorGray"
             android:layout_marginBottom="24dp"/>
 
-        <!-- Botón login -->
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
@@ -100,7 +96,6 @@
             android:background="@drawable/bg_button_login"
             android:layout_marginBottom="20dp"/>
 
-        <!-- Registro -->
         <TextView
             android:id="@+id/tvRegistro"
             android:layout_width="wrap_content"

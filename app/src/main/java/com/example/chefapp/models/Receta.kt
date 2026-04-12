@@ -14,7 +14,7 @@ data class Receta(
     val calificaciones: List<Calificacion> = emptyList(),
     val categoria: Categoria? = null
 ) {
-    fun visualizar() { /* mostrar receta */ }
+    fun visualizar() { }
 
     fun ajustarPorciones(nuevasPorciones: Int): Receta {
         if (nuevasPorciones <= 0 || porciones <= 0) return this
@@ -27,7 +27,7 @@ data class Receta(
         ingredientes.forEach { it.convertirUnidad(unidad) }
     }
 
-    fun calcularIngredientes() { /* calcula ingredientes según porciones */ }
+    fun calcularIngredientes() { }
 
     fun calcularCalificacionPromedio(): Float {
         if (calificaciones.isEmpty()) return calificacionPromedio

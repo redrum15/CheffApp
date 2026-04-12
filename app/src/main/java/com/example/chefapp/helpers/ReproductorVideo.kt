@@ -22,8 +22,8 @@ class ReproductorVideo {
         }
     }
 
-    fun reproducir() { /* delegado a WebView */ }
-    fun pausar() { /* delegado a WebView */ }
+    fun reproducir() { }
+    fun pausar() { }
     fun siguiente() {
         val idx = listaVideos.indexOf(videoActual)
         if (idx in 0 until listaVideos.size - 1) {
