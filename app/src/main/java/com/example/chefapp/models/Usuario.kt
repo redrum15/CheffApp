@@ -80,6 +80,15 @@ object UsuarioActual {
         preferencias = mutableListOf(
             PreferenciaDietetica(1, TipoDieta.SIN_GLUTEN),
             PreferenciaDietetica(2, TipoDieta.SIN_LACTOSA)
+        ),
+        alimentosFavoritos = mutableListOf(
+            Alimento(1, "Pasta 🍝", TipoAlimento.FAVORITO),
+            Alimento(2, "Sushi 🍣", TipoAlimento.FAVORITO),
+            Alimento(3, "Tacos 🌮", TipoAlimento.FAVORITO)
+        ),
+        alimentosNoDeseados = mutableListOf(
+            Alimento(4, "Hígado 🥩", TipoAlimento.NO_DESEADO),
+            Alimento(5, "Remolacha 🍠", TipoAlimento.NO_DESEADO)
         )
     )
 }

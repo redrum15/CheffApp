@@ -12,6 +12,10 @@ import com.example.chefapp.databinding.FragmentPerfilBinding
 import com.example.chefapp.models.ObjetivoNutricional
 import com.example.chefapp.models.TipoDieta
 import com.example.chefapp.models.UsuarioActual
+import android.graphics.Color
+import android.graphics.Typeface
+import android.widget.GridLayout
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.chip.Chip
 
 class PerfilFragment : Fragment() {
@@ -37,6 +41,8 @@ class PerfilFragment : Fragment() {
         mostrarPerfil()
         mostrarPreferencias()
         mostrarAlergias()
+        mostrarFavoritos()
+        mostrarNoDeseados()
 
         binding.btnEditar.setOnClickListener {
             usuario.editarPerfil()
@@ -94,6 +100,37 @@ class PerfilFragment : Fragment() {
                 setTextColor(ContextCompat.getColor(requireContext(), R.color.colorWhite))
             }
             binding.chipGroupAlergias.addView(chip)
+        }
+    }
+
+    private fun mostrarFavoritos() {
+        binding.gridFavoritos.removeAllViews()
+        usuario.alimentosFavoritos.forEach { alimento ->
+            val btn = crearBotonAlimento(alimento.nombre)
+            binding.gridFavoritos.addView(btn)
+        }
+    }
+
+    private fun mostrarNoDeseados() {
+        binding.gridNoGustan.removeAllViews()
+        usuario.alimentosNoDeseados.forEach { alimento ->
+            val btn = crearBotonAlimento(alimento.nombre)
+            binding.gridNoGustan.addView(btn)
+        }
+    }
+
+    private fun crearBotonAlimento(nombre: String): MaterialButton {
+        return MaterialButton(requireContext()).apply {
+            text = nombre.uppercase()
+            setBackgroundColor(Color.parseColor("#B43229"))
+            setTextColor(Color.WHITE)
+            textSize = 11f
+            typeface = Typeface.DEFAULT_BOLD
+            cornerRadius = (8 * resources.displayMetrics.density).toInt()
+            val params = GridLayout.LayoutParams().apply {
+                setMargins(0, 0, (12 * resources.displayMetrics.density).toInt(), (4 * resources.displayMetrics.density).toInt())
+            }
+            layoutParams = params
         }
     }
 
