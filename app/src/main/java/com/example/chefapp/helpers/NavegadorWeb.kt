@@ -25,9 +25,7 @@ class NavegadorWeb {
 
     fun mostrarHistorial(): List<String> = historial.toList()
 
-    fun atras() { }
-    fun adelante() { }
-    fun recargar() { }
+
 
     fun agregarAccesoRapido(url: String) {
         if (!accesosRapidos.contains(url)) {

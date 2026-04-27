@@ -41,17 +41,14 @@ class WebFragment : Fragment() {
         }
 
         binding.btnAtras.setOnClickListener {
-            navegador.atras()
             if (binding.webView.canGoBack()) binding.webView.goBack()
         }
 
         binding.btnAdelante.setOnClickListener {
-            navegador.adelante()
             if (binding.webView.canGoForward()) binding.webView.goForward()
         }
 
         binding.btnRecargar.setOnClickListener {
-            navegador.recargar()
             binding.webView.reload()
         }
 
