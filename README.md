@@ -11,7 +11,7 @@ Aplicación Android de recetas y cocina desarrollada en Kotlin. Permite explorar
 - **Tutoriales en video** — Reproducción de videos de YouTube embebidos con controles de volumen y navegación entre videos.
 - **Navegador web** — Navegador integrado con historial, barra de URL y accesos rápidos a sitios como RecetasGratis, Tasty, TasteAtlas y Epicurious.
 - **Ajuste de recetas** — Escalado de porciones (1–10), conversión de unidades (gramos ↔ onzas) y sistema de calificación (1–5 estrellas).
-- **Vista de bontones** — Vista con diferentes botones disponibles
+- **Vista de botones** — Vista con diferentes botones disponibles
 ---
 
 ## Tecnologías
