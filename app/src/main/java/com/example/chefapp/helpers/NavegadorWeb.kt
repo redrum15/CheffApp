@@ -5,11 +5,11 @@ class NavegadorWeb {
         private set
     var historial: MutableList<String> = mutableListOf()
         private set
-    var accesosRapidos: List<String> = listOf(
-        "https://www.recetasgratis.net",
-        "https://tasty.co",
-        "https://www.tasteatlas.com",
-        "https://www.epicurious.com"
+    var accesosRapidos: List<Pair<String, String>> = listOf(
+        Pair("🥘 RecetasGratis", "https://www.recetasgratis.net"),
+        Pair("📺 Tasty",         "https://tasty.co"),
+        Pair("⭐ TasteAtlas",    "https://www.tasteatlas.com"),
+        Pair("🍳 Epicurious",    "https://www.epicurious.com")
     )
         private set
 
@@ -27,9 +27,9 @@ class NavegadorWeb {
 
 
 
-    fun agregarAccesoRapido(url: String) {
-        if (!accesosRapidos.contains(url)) {
-            accesosRapidos = accesosRapidos + url
+    fun agregarAccesoRapido(nombre: String, url: String) {
+        if (accesosRapidos.none { it.second == url }) {
+            accesosRapidos = accesosRapidos + Pair(nombre, url)
         }
     }
 

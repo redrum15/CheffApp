@@ -18,13 +18,6 @@ class WebFragment : Fragment() {
 
     private val navegador = NavegadorWeb()
 
-    private val accesosRapidosUI = listOf(
-        Pair("🥘 RecetasGratis", "https://www.recetasgratis.net"),
-        Pair("📺 Tasty",         "https://tasty.co"),
-        Pair("⭐ TasteAtlas",    "https://www.tasteatlas.com"),
-        Pair("🍳 Epicurious",    "https://www.epicurious.com")
-    )
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentWebBinding.inflate(inflater, container, false)
         return binding.root
@@ -52,15 +45,16 @@ class WebFragment : Fragment() {
             binding.webView.reload()
         }
 
-        binding.itemAcceso1.setOnClickListener { cargarUrl(accesosRapidosUI[0].second) }
-        binding.itemAcceso2.setOnClickListener { cargarUrl(accesosRapidosUI[1].second) }
-        binding.itemAcceso3.setOnClickListener { cargarUrl(accesosRapidosUI[2].second) }
-        binding.itemAcceso4.setOnClickListener { cargarUrl(accesosRapidosUI[3].second) }
+        val accesos = navegador.accesosRapidos
+        binding.itemAcceso1.setOnClickListener { cargarUrl(accesos[0].second) }
+        binding.itemAcceso2.setOnClickListener { cargarUrl(accesos[1].second) }
+        binding.itemAcceso3.setOnClickListener { cargarUrl(accesos[2].second) }
+        binding.itemAcceso4.setOnClickListener { cargarUrl(accesos[3].second) }
 
-        binding.tvAcceso1.text = accesosRapidosUI[0].first
-        binding.tvAcceso2.text = accesosRapidosUI[1].first
-        binding.tvAcceso3.text = accesosRapidosUI[2].first
-        binding.tvAcceso4.text = accesosRapidosUI[3].first
+        binding.tvAcceso1.text = accesos[0].first
+        binding.tvAcceso2.text = accesos[1].first
+        binding.tvAcceso3.text = accesos[2].first
+        binding.tvAcceso4.text = accesos[3].first
 
         cargarUrl(navegador.urlActual)
     }
@@ -103,8 +97,8 @@ class WebFragment : Fragment() {
         actualizarHistorialUI()
     }
 
-    fun agregarAccesoRapido(url: String) {
-        navegador.agregarAccesoRapido(url)
+    fun agregarAccesoRapido(nombre: String, url: String) {
+        navegador.agregarAccesoRapido(nombre, url)
     }
 
     private fun actualizarHistorialUI() {
